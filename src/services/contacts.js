@@ -9,14 +9,13 @@ export const getAllContacts = async ({ page, perPage }) => {
     const contactsQuery = contactsCollection.find();
     const contactsCount = await contactsCollection.find().merge(contactsQuery).countDocuments();
     const contacts = await contactsQuery.skip(skip).limit(limit).exec();
-    const paginationData = calculatePaginationData(contactsCount, page, perPage);
+    const paginationData = calculatePaginationData(contactsCount, perPage, page);
     return {
         data: contacts,
         ...paginationData,
     };
 };
 
-export const getContacts = () => contactsCollection.find();
 export const getContactsById = (contactId) => contactsCollection.findById(contactId);
 export const deleteContact = (contactId) => contactsCollection.findOneAndDelete({ _id: contactId });
 export const createContact = (payload) => contactsCollection.create(payload);
