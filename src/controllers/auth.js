@@ -38,35 +38,6 @@ export const loginUserController = async (req, res) => {
     });
 };
 
-// export const logoutUserController = async (req, res) => {
-//     if (req.cookies.sessionId) {
-//         await logoutUser(req.cookies.sessionId);
-//     }
-//     res.clearCookie('sessionId');
-//     res.clearCookie('refreshToken');
-
-//     res.status(204).send();
-// };
-
-
-
-
-// export const logoutUserController = async (req, res, next) => {
-//     try {
-//         console.log("Cookies:", req.cookies);
-
-//         if (!req.cookies || !req.cookies.sessionId) {
-//             return res.status(400).json({ message: "No sessionId in cookies" });
-//         }
-
-//         await logoutUser(req.cookies.sessionId);
-//         res.clearCookie('sessionId');
-//         res.clearCookie('refreshToken');
-//         res.status(204).send();
-//     } catch (error) {
-//         next(error);
-//     }
-// };
 
 
 
