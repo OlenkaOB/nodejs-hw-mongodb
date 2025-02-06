@@ -6,6 +6,17 @@ import { ENV_VARS } from './config/contacts.js';
 import router from './routers/index.js';
 import { errorHandlerMiddleware } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
+import cookieParser from 'cookie-parser';
+
+export const startServer = () => {
+    const app = express();
+
+    app.use(express.json());
+    app.use(cors());
+    app.use(cookieParser());
+
+};
+
 
 
 export const setupServer = () => {

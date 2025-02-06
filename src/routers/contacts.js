@@ -12,6 +12,7 @@ const contactsRouter = Router();
 contactsRouter.get('/', ctrlWrapper(getContactsController));
 
 contactsRouter.get('/:contactId', isValidId, ctrlWrapper(getContactsByIdController));
+contactsRouter.post('/register', validateBody(createStudentSchema), ctrlWrapper(createContactsController));
 contactsRouter.delete('/:contactId', isValidId, ctrlWrapper(deleteContactsController));
 contactsRouter.post('/', validateBody(createStudentSchema), ctrlWrapper(createContactsController));
 contactsRouter.patch('/:contactId', isValidId, validateBody(updateStudentSchema), ctrlWrapper(updateContactsController));
