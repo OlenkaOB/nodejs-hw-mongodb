@@ -7,7 +7,7 @@ import { loginUser } from "../services/auth.js";
 
 
 export const registerUserController = async (req, res) => {
-    const user = registerUser(req.body);
+    const user = await registerUser(req.body);
     res.status(201).json({
         status: 201,
         message: 'Successfully registered a user!',
@@ -70,7 +70,7 @@ export const refreshUsersSessionController = async (req, res) => {
         refreshToken: req.cookies.refreshToken,
 
     });
-    setupSession(req, session);
+    setupSession(res, session);
 
     res.json({
         status: 200,
