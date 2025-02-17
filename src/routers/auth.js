@@ -33,7 +33,7 @@ authRouter.post(
     validateBody(resetPasswordSchema),
     ctrlWrapper(resetPasswordController),
 );
-authRouter.post(
+authRouter.get(
     '/get-oauth-url',
     ctrlWrapper(getGoogleOAuthUrlController),
 );
